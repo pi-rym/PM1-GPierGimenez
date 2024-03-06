@@ -1,0 +1,56 @@
+.caja1 {
+    padding: 10px;
+    border: 5px solid rgb(255, 255, 255);
+    background-image: linear-gradient(to bottom right, #0c23f510, #3c4169); /* Definir el degradado */
+    text-align: center; /* Centrar el texto horizontalmente */
+    width: 600px; /* Ancho del div */
+    margin: 0 auto; /* Margen automático en los lados para centrar */
+    border-radius: 10px; /* Redondear los bordes a 10px */
+}
+
+
+
+
+.contenedor-imagenes {
+    display: flex; /* Utilizar flexbox para alinear las imágenes */
+    justify-content: center; /* Espacio entre las imágenes */
+    margin: 0 auto; /* Margen automático en los lados para centrar */
+    border: 4px solid rgba(202, 221, 230, 0.897);
+    width: 800px; /* Ancho del div */
+    border-radius: 10px; /* Redondear los bordes a 10px */
+}
+
+
+
+.contenedor-imagenes img {
+    /* contenedor-imagenes img se refiere a un selector CSS que apunta a todas las imágenes (img) 
+    que se encuentran dentro de un elemento con la clase contenedor-imagenes. 
+    Esto significa que estas reglas de estilo se aplicarán específicamente a las 
+    imágenes que están dentro de un contenedor con la clase contenedor-imagenes*/
+    width: 150px; /* Ancho de las imágenes */
+    height: 150px; /* Altura de las imágenes */
+    margin-right: 2cm; /* Margen de 2centímetros entre cada imagen */
+    transition: transform 0.3s; /* Agregar transición para suavizar el efecto */
+  
+}
+    
+
+
+.contenedor-imagenes img:hover {
+    transform: scale(1.1); /* Escalar la imagen al 110% al pasar el cursor sobre ella */
+    
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #1e201f, #060af3e5); /* Definir el degradado */
+    background-size: cover; /* Para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Para evitar la repetición del degradado */
+    color: white;
+    text-align: center; /* Centrar el texto horizontalmente */
+}
+
+
+.cajainput{
+    text-align: center; /* Alinear contenido a la izquierda */
+    
+}
