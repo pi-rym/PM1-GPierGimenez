@@ -1,56 +1,109 @@
 .caja1 {
     padding: 10px;
     border: 5px solid rgb(255, 255, 255);
-    background-image: linear-gradient(to bottom right, #0c23f510, #3c4169); /* Definir el degradado */
+    background-image: linear-gradient(to bottom right, #f00909b6, #0c25e7); /* Definir el degradado */
     text-align: center; /* Centrar el texto horizontalmente */
-    width: 600px; /* Ancho del div */
+    width: 800px; /* Ancho del div */
     margin: 0 auto; /* Margen automático en los lados para centrar */
     border-radius: 10px; /* Redondear los bordes a 10px */
+    transition: background-color 0.6s; /* Transición suave */
 }
 
-
+.caja1:hover{
+    background-color: white; /* Nuevo color de fondo al pasar el cursor */
+}
 
 
 .contenedor-imagenes {
     display: flex; /* Utilizar flexbox para alinear las imágenes */
     justify-content: center; /* Espacio entre las imágenes */
+    
     margin: 0 auto; /* Margen automático en los lados para centrar */
     border: 4px solid rgba(202, 221, 230, 0.897);
     width: 800px; /* Ancho del div */
+    height: 300px; /*alto del div*/
     border-radius: 10px; /* Redondear los bordes a 10px */
+    transition: background-color 0.6s; /* Transición suave */
+    background-image: linear-gradient(to bottom right, #f00909b6, #0c25e7); /* Definir el degradado */
+   
 }
-
-
 
 .contenedor-imagenes img {
     /* contenedor-imagenes img se refiere a un selector CSS que apunta a todas las imágenes (img) 
     que se encuentran dentro de un elemento con la clase contenedor-imagenes. 
     Esto significa que estas reglas de estilo se aplicarán específicamente a las 
     imágenes que están dentro de un contenedor con la clase contenedor-imagenes*/
-    width: 150px; /* Ancho de las imágenes */
-    height: 150px; /* Altura de las imágenes */
-    margin-right: 2cm; /* Margen de 2centímetros entre cada imagen */
-    transition: transform 0.3s; /* Agregar transición para suavizar el efecto */
-  
-}
     
-
-
+    transition: transform 0.6s; /* Agregar transición para suavizar el efecto */
+  
+    width: calc(20.33% - 1rem); /* Ancho de cada imagen */
+    margin-right: 2rem; /* Margen entre las imágenes */
+}
 .contenedor-imagenes img:hover {
     transform: scale(1.1); /* Escalar la imagen al 110% al pasar el cursor sobre ella */
-    
+}  
+.contenedor-imagenes img:last-child {
+        margin-right: 0.5; /* Eliminar el margen derecho de la última imagen */
+    }    
+
+
+.contenedor-imagenes:hover {
+    transform: scale(1.1); /* Escalar la imagen al 110% al pasar el cursor sobre ella */
+    background-color: white; /* Nuevo color de fondo al pasar el cursor */
+    transition: transform 1s; /* Agregar transición para suavizar el efecto */
+  
 }
+
+.cajainput {
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.cajainput input {
+    width: 800px; /* Tamaño uniforme para todos los inputs */
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición para suavizar el cambio de color de borde */
+}
+
+.cajainput input:hover {
+    border-color: #5ffac6; /* Cambiar el color del borde al pasar el cursor */
+}
+
+.cajainput input:focus {
+    outline: none; /* Quitar el contorno al estar enfocado */
+    border-color: #ff6804; /* Cambiar el color del borde cuando está enfocado */
+}
+
+.cajainput textarea {
+    width: 800px; /* Tamaño uniforme para el textárea */
+    height: 100px; /* Altura del textárea */
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición para suavizar el cambio de color de borde */
+}
+
+.cajainput textarea:hover {
+    border-color: #007bff; /* Cambiar el color del borde al pasar el cursor */
+}
+
+.contenedor textarea:focus {
+    outline: none; /* Quitar el contorno al estar enfocado */
+    border-color: #007bff; /* Cambiar el color del borde cuando está enfocado */
+}
+
+
+
 
 body {
-    background-image: linear-gradient(to bottom right, #1e201f, #060af3e5); /* Definir el degradado */
+    background-image: url('https://i.blogs.es/9201c7/i3gaps/1366_2000.png');
     background-size: cover; /* Para cubrir todo el fondo */
-    background-repeat: no-repeat; /* Para evitar la repetición del degradado */
-    color: white;
-    text-align: center; /* Centrar el texto horizontalmente */
-}
-
-
-.cajainput{
-    text-align: center; /* Alinear contenido a la izquierda */
+    background-repeat: no-repeat; /* Para evitar la repetición de la imagen */
     
+    text-align: center;
+    color: white; /* Color del texto */
+   
 }
