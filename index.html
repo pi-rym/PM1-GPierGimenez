@@ -56,16 +56,20 @@
         <br><br>
         <div class="cajainput">
         <br>
-        <input type="text" name= "actividad"  placeholder="Mis Actividades fisicas"/>
+        <input type="text" id="actfavorita"  placeholder="Mi Actividad Favorita"/>
         
-        <br><br><textarea  name="descipcion"rows="4" cols="134" placeholder="Descripcion de Actividades"></textarea>
+        <br><br><textarea  id="desd"rows="4" cols="134" placeholder="Descripcion de Actividad"></textarea>
         
-        <br><br><input type="text" name="imagencarga" placeholder="link de Foto"/>       
+        <br><br><input type="text" id="linkimg" placeholder="link de Foto"/>       
         
 
     </div>
-    <br><br><button>Cargar Información</button>
-            <footer>
+    <br><br><button onclick="guardarValores()"> Cargar Información</button>
+    
+    <div id="resultado" class="tarjetas"></div>
+    
+    
+    <footer>
                 <br>
                 <div>
                 <p>Gian Pier Gimenez Sfontato</p><br>
@@ -76,6 +80,7 @@
             </div>
               </footer>
        
-    
+    <script src="scripts/index.js"></script>
+
 </body>
 </html>
