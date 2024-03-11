@@ -111,25 +111,18 @@
     display: inline-block;
 }
 
+.tarjeta:hover{
+    border: 4px solid  #00A97F;
+    border-radius: 5px; /* Bordes redondeados */
+    transform: scale(1.1); /* Escalar la imagen al 110% al pasar el cursor sobre ella */
+    transition: transform 1s; /* Agregar transición para suavizar el efecto */
+
+}
+
 .tarjeta img {
     max-width: 100%;
     height: auto;
 }
-
-.button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
 
 
 
