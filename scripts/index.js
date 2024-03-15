@@ -10,19 +10,41 @@ class Activity{
 class Repository {
     constructor(){
         this.arrayactividades=[];
+        this.id=0;
        
     }
 
-    agregarDatos(dato) {
-      
-        this.arrayactividades.push(dato);
-    }
-
-    obtenerDatos() {
+    getAllActivities () {
+       
         return this.arrayactividades;
     }
 
-    borrarcarta(id) {
+    createActivity (){
+        
+        const id = this.id++;
+        
+        const actividad = document.getElementById('actfavorita').value;
+        const desd = document.getElementById('desd').value;
+        const linkimg = document.getElementById('linkimg').value;
+        // Verificar que los campos obligatorios no estén vacíos
+        if (actividad.trim() === '' || desd.trim() === '' || linkimg.trim() === '') {
+            alert('Por favor, complete todos los campos obligatorios.');
+            return;
+        }
+        const datos = new Activity(id,actividad, desd, linkimg);
+        this.arrayactividades.push(datos);
+       
+        
+
+    document.getElementById('actfavorita').value = '';
+    document.getElementById('desd').value = '';
+    document.getElementById('linkimg').value = '';
+        
+    
+
+    }
+
+    deleteActivity  = (id) => {
         this.arrayactividades = this.arrayactividades.filter(activity => activity.id !== id);
       
     }
@@ -30,60 +52,46 @@ class Repository {
 }
 
 
-let contador = 0; // Variable global para almacenar el número
+function instActivity(insvaraible){
+    const ins = new Activity(insvaraible);
 
-const repo = new Repository();
+    // Destructuración de propiedades del objeto en variables
+//     const { id, title, description, imgUrl } = pruebadeistancia;
 
-function guardarValores() {
-    contador++;
-    const actividad = document.getElementById('actfavorita').value;
-    const desd = document.getElementById('desd').value;
-    const linkimg = document.getElementById('linkimg').value;
+// // Uso de las variables extraídas
+// console.log("console de id",id); 
+// console.log(title);   
+// console.log(description); 
+// console.log(imgUrl); 
 
-    // Verificar que los campos obligatorios no estén vacíos
-    if (actividad.trim() === '' || desd.trim() === '' || linkimg.trim() === '') {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return;
-    }
-    const datos = new Activity(contador,actividad, desd, linkimg);
-    repo.agregarDatos(datos);
-
-    console.log(repo.obtenerDatos());
-    document.getElementById('actfavorita').value = '';
-    document.getElementById('desd').value = '';
-    document.getElementById('linkimg').value = '';
-    
-    mostrarActividades();
 }
 
-function mostrarActividades() {
-    
-    const resultadoDiv = document.getElementById('resultado');
 
-    // Reinicio del contenido del div 'resultado'
-    resultadoDiv.innerHTML = '';
+// Crear una instancia de la clase Repository
+const act = new Repository();
 
-    // Iteración sobre todas las actividades almacenadas en el repository
-    repo.obtenerDatos().forEach(arrayactividades => {
-        // Creación de un nuevo div para cada actividad
-        const actividadDiv = document.createElement('div');
-        actividadDiv.classList.add('tarjeta');
-        
-        // Asignación del contenido HTML del div con los datos de la actividad
-        actividadDiv.innerHTML = `
-        
-            <h3>${arrayactividades.title}</h3><br>
-            <p>${arrayactividades.description}</p><br>
-            <img src="${arrayactividades.imgUrl}" alt="${arrayactividades.title}">
-            <button class="btn" data-id="${arrayactividades.id}" onclick="eliminarActividad(${arrayactividades.id})">Eliminar</button>
-        `;
-        
-        // Agregado del div de la actividad al div 'resultado'
-        resultadoDiv.appendChild(actividadDiv);
-    });
+
+
+
+function guardarValores(){    
+act.createActivity();
+const resultadodeguardar = act.getAllActivities();
+console.log("resultador de guardar=> ", resultadodeguardar);
+const ins= new Activity(resultadodeguardar)
+// instActivity(resultadodeguardar);
+ console.log("resultado de instancia activity =>",ins);
+
+
+
+
+
+
 }
 
 function eliminarActividad(id) {
-    repo.borrarcarta(id);
-    mostrarActividades();
+    act.deleteActivity(id);
+    act.getAllActivities
+    // mostrarActividades(); mostrar nuevamente el div con el contenido existente
 }
+
+
