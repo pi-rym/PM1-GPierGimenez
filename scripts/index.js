@@ -10,7 +10,7 @@ class Activity{
 class Repository {
     constructor(){
         this.arrayactividades=[];
-        this.id=0;
+        this.id=1;
        
     }
 
@@ -20,78 +20,103 @@ class Repository {
     }
 
     createActivity (){
-        
-        const id = this.id++;
-        
+       
         const actividad = document.getElementById('actfavorita').value;
         const desd = document.getElementById('desd').value;
         const linkimg = document.getElementById('linkimg').value;
         // Verificar que los campos obligatorios no estén vacíos
-        if (actividad.trim() === '' || desd.trim() === '' || linkimg.trim() === '') {
-            alert('Por favor, complete todos los campos obligatorios.');
-            return;
-        }
-        const datos = new Activity(id,actividad, desd, linkimg);
-        this.arrayactividades.push(datos);
-       
-        
-
-    document.getElementById('actfavorita').value = '';
-    document.getElementById('desd').value = '';
-    document.getElementById('linkimg').value = '';
-        
     
+       const activity = new Activity(this.id,actividad,desd,linkimg)
+              
+        this.arrayactividades.push(activity);
+    
+        document.getElementById('actfavorita').value = '';
+        document.getElementById('desd').value = '';
+        document.getElementById('linkimg').value = '';
+            
+        this.id++;
+        
 
     }
 
     deleteActivity  = (id) => {
-        this.arrayactividades = this.arrayactividades.filter(activity => activity.id !== id);
-      
+    
+        this.arrayactividades = this.arrayactividades.filter((activity) => activity.id !== id);
+        
     }
 
 }
 
 
-function instActivity(insvaraible){
-    const ins = new Activity(insvaraible);
+function crearcarta(infocarta){
+    //Reinicio del + del div 'Contenedor'
+    const resultadoDiv = document.getElementById('Contenedor');
+    resultadoDiv.innerHTML = '';
+     
+    
+   const arraytarjetahtml= repository.getAllActivities ().map(crearcartahtml);
+   arraytarjetahtml.forEach( (arrayactividades ) => resultadoDiv.appendChild(arrayactividades) )
+    
 
-    // Destructuración de propiedades del objeto en variables
-//     const { id, title, description, imgUrl } = pruebadeistancia;
+}
+ function crearcartahtml({id,title,description,imgUrl }){// pasamos la Destructuración de propiedades del objeto como argumento
+    
+        // creacion de elementos html
+        const div = document.createElement('div');
+        const h3 = document.createElement("h3")
+        const p = document.createElement("p")
+        const img = document.createElement("img")
+        const BottonEli = document.createElement('button');
+       
+        div.classList.add('tarjeta');
+        BottonEli.classList.add('btn');
+        BottonEli.value =id;
+        BottonEli.id='botonsubmitdelet';
+        BottonEli.addEventListener("click", () => eliminarActividad(id));
+       
+        //asignacion de valores
+        h3.innerHTML=title;
+        p.innerHTML=description;
+        img.src=imgUrl;
+        img.alt='imagen sobre${title}';
+        BottonEli.innerHTML="Eliminar"; // Agregar texto al botón
+        console.log(img);
+        //agragamos los elementos de nuestra carta en un contenedor div
+        div.appendChild(h3);
+        div.appendChild(p);
+        div.appendChild(img);
+        div.appendChild(BottonEli);
+        
+        return div;
 
-// // Uso de las variables extraídas
-// console.log("console de id",id); 
-// console.log(title);   
-// console.log(description); 
-// console.log(imgUrl); 
+}
+ 
+function guardarValores(){
+ 
+    repository.createActivity();
+    const activity = repository.getAllActivities();
+    crearcarta(activity);
 
+}
+
+
+function eliminarActividad(id) {
+    repository.deleteActivity(id);
+    const activity = repository.getAllActivities();
+    crearcarta(activity);
 }
 
 
 // Crear una instancia de la clase Repository
-const act = new Repository();
+const repository = new Repository();
 
 
+const BottonSumbit = document.getElementById("botonsubmit")
+BottonSumbit.addEventListener("click",guardarValores)
+
+// const BottonSumbitDelet = document.getElementById("botonsubmitdelet")
+// BottonSumbitDelet.addEventListener("click",)
 
 
-function guardarValores(){    
-act.createActivity();
-const resultadodeguardar = act.getAllActivities();
-console.log("resultador de guardar=> ", resultadodeguardar);
-const ins= new Activity(resultadodeguardar)
-// instActivity(resultadodeguardar);
- console.log("resultado de instancia activity =>",ins);
-
-
-
-
-
-
-}
-
-function eliminarActividad(id) {
-    act.deleteActivity(id);
-    act.getAllActivities
-    // mostrarActividades(); mostrar nuevamente el div con el contenido existente
-}
 
 

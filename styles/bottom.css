@@ -1,6 +1,6 @@
 .btn {
     --color: #00A97F;
-    --color2: rgb(10, 25, 30);
+    --color2: rgb(206, 221, 226);
     padding: 0.8em 1.75em;
     background-color: transparent;
     border-radius: 6px;
@@ -18,7 +18,7 @@
    }
    
    .btn::after, .btn::before {
-    content: '';
+
     display: block;
     height: 100%;
     width: 100%;
@@ -35,6 +35,7 @@
     top: -50%;
     left: -25%;
     transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+
    }
    
    .btn:hover::before {
