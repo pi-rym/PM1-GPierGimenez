@@ -4,7 +4,7 @@ const repository = new Repository();
 
 
 const BottonSumbit = document.getElementById("botonsubmit")
-BottonSumbit.addEventListener("click",guardarValores)
+BottonSumbit.addEventListener("click",handlerBotton)
 
 
 

@@ -25,7 +25,10 @@ class Repository {
         const desd = document.getElementById('desd').value;
         const linkimg = document.getElementById('linkimg').value;
         // Verificar que los campos obligatorios no estén vacíos
-    
+        if(actividad==="" || desd === "" || linkimg ===""){
+            alert('Algunos campos estan vacios, por favor complete la informaciion')
+            return
+        }
        const activity = new Activity(this.id,actividad,desd,linkimg)
               
         this.arrayactividades.push(activity);

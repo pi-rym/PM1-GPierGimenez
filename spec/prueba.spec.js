@@ -26,7 +26,7 @@ describe("Repository debe tener 3 metodos", function(){
   it("createActivity debe estar definido", function(){
     expect(repo.createActivity).toBeDefined();
   });
-  it("createActivity debe estar definido", function(){
+  it("deleteActivity debe estar definido", function(){
     expect(repo.deleteActivity).toBeDefined();
   });
 })
