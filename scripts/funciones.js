@@ -1,4 +1,4 @@
-function crearcarta(infocarta){
+function crearcarta(){
     //Reinicio del div 'Contenedor'
     const resultadoDiv = document.getElementById('Contenedor');
     resultadoDiv.innerHTML = '';
@@ -17,7 +17,8 @@ function crearcarta(infocarta){
         const p = document.createElement("p")
         const img = document.createElement("img")
         const BottonEli = document.createElement('button');
-
+        const br= document.createElement('br','br')
+        
         p.classList.add('letras')
         h3.classList.add('letras')
         div.classList.add('tarjeta');
@@ -34,9 +35,13 @@ function crearcarta(infocarta){
         BottonEli.innerHTML="Eliminar"; // Agregar texto al botón
         //agragamos los elementos de nuestra carta en un contenedor div
         div.appendChild(h3);
+        div.appendChild(br);
+        div.appendChild(br);
         div.appendChild(p);
         div.appendChild(img);
         div.appendChild(BottonEli);
+        
+       
         
         return div;
 
@@ -45,14 +50,14 @@ function crearcarta(infocarta){
 function handlerBotton(){
  
     repository.createActivity();
-    const activity = repository.getAllActivities();
-    crearcarta(activity);
+ 
+    crearcarta();
 
 }
 
 
 function eliminarActividad(id) {
     repository.deleteActivity(id);
-    const activity = repository.getAllActivities();
-    crearcarta(activity);
+   
+    crearcarta();
 }
